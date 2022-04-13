@@ -1,16 +1,14 @@
 namespace core
 {
-
     export class User
     {
-        // private instance members (data)
-
+        // private instance members
         private m_displayName: string;
         private m_emailAddress: string;
         private m_username: string;
         private m_password: string;
 
-        // TODO: missing Getters and Setters
+        // getters and setters
         public get DisplayName(): string 
         {
             return this.m_displayName;
@@ -52,7 +50,7 @@ namespace core
         }
 
         // constructor
-        constructor(displayName: string = "", emailAddress: string = "", username: string ="", password: string = "")
+        constructor(displayName:string = "", emailAddress:string = "", username:string ="", password:string = "")
         {
             this.m_displayName = displayName;
             this.m_emailAddress = emailAddress;
@@ -60,14 +58,7 @@ namespace core
             this.m_password = password;
         }
 
-        // overriden methods
-
-        /**
-         * This method overrides the built-in toString method and returns a comma-separated string containing the objects property values
-         * @override
-         * @return {string} 
-         * @memberof User
-         */
+        // overridden methods
         toString(): string
         {
             return `Display Name : ${this.DisplayName}\nEmail Address : ${this.EmailAddress}\nUsername : ${this.Username}`;
@@ -75,7 +66,7 @@ namespace core
 
         // utility methods
 
-        // TODO: need to fix the Return type
+        // TODO: Fix Return Type
         toJSON()
         {
             return {
@@ -85,8 +76,8 @@ namespace core
             }
         }
 
-        // TODO: need to fix the parameter data type
-        fromJSON(data: any): void
+        //TODO: Fix data type
+        fromJSON(data: any)
         {
             this.DisplayName = data.DisplayName;
             this.EmailAddress = data.EmailAddress;
@@ -94,13 +85,7 @@ namespace core
             this.Password = data.Password;
         }
 
-        /**
-         * This method convert's the object's properties into a comma-separated string
-         *
-         * @return {(string | null)}
-         * @memberof User
-         */
-        serialize(): string | null
+        serialize() : string | null
         {
             if(this.DisplayName !== "" && this.EmailAddress !== "" && this.Username !== "")
             {
@@ -110,12 +95,6 @@ namespace core
             return null;
         }
     
-        /**
-         * This method separates the data string parameter into the object's properties
-         *
-         * @param {string} data
-         * @returns {void}
-         */
         deserialize(data: string) // assume that data is in a comma-separated format (string array of properties)
         {
             let propertyArray: string[] = data.split(",");
@@ -124,5 +103,4 @@ namespace core
             this.Username = propertyArray[2];
         }
     }
-
 }

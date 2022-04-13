@@ -2,53 +2,30 @@ namespace core
 {
     export class Router
     {
-        // private instance members
         private m_activeLink: string;
         private m_linkData: string;
         private m_routingTable: string[];
 
-
         // public properties (getters and setters)
-        /**
-         * @returns {string}
-         *
-         * @memberof Router
-         */
-        public get ActiveLink(): string
+        get ActiveLink(): string
         {
             return this.m_activeLink;
         }
 
-        /**
-         * @param {string} link
-         *
-         * @memberof Router
-         */
-        public set ActiveLink(link:string)
+        set ActiveLink(link:string)
         {
             this.m_activeLink = link;
         }
 
-        // public properties (getters and setters)
-        /**
-         * @returns {string}
-         *
-         * @memberof Router
-         */
-         public get LinkData(): string
-         {
-             return this.m_linkData;
-         }
- 
-         /**
-          * @param {string} link
-          *
-          * @memberof Router
-          */
-         public set LinkData(data:string)
-         {
-             this.m_linkData = data;
-         }
+        get LinkData(): string
+        {
+            return this.m_linkData;
+        }
+
+        set LinkData(data:string)
+        {
+            this.m_linkData = data;
+        }
 
         // constructor
 
@@ -61,7 +38,7 @@ namespace core
         {
             this.m_activeLink = "";
             this.m_linkData = "";
-            this.m_routingTable = []; // creates an empty string array container
+            this.m_routingTable = []; // creates an empty array
         }
         
         // public methods
@@ -70,7 +47,6 @@ namespace core
          * Adds a new route to the Routing table
          *
          * @param {string} route
-         * @returns {void}
          */
         Add(route: string): void
         {
@@ -82,7 +58,6 @@ namespace core
          * Routes should begin with '/' character
          * 
          * @param {string[]} routingTable
-         * @returns {void}
          */
         AddTable(routingTable: string[]): void
         {
@@ -135,7 +110,6 @@ namespace core
 }
 
 let router: core.Router = new core.Router();
-
 router.AddTable([
     "/",
     "/home",
